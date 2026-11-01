@@ -1,0 +1,10 @@
+{"id": "navigate_ready", "turns": ["Take me to the kitchen."], "expected_status": "READY", "expected_intent": "NAVIGATE", "expected_entities": {"destination": "kitchen"}}
+{"id": "retrieve_clarify_then_ready", "turns": ["Bring me the bottle.", "From the kitchen."], "expected_status": "READY", "expected_intent": "RETRIEVE", "expected_entities": {"object": "bottle", "source_location": "kitchen", "destination": "user"}}
+{"id": "deliver_john_ready", "turns": ["Give the bottle to John."], "expected_status": "READY", "expected_intent": "DELIVER", "expected_entities": {"object": "bottle", "person": "john"}}
+{"id": "deliver_someone_then_john", "turns": ["Give the bottle to someone.", "John."], "expected_status": "READY", "expected_intent": "DELIVER", "expected_entities": {"object": "bottle", "person": "john"}}
+{"id": "follow_ready", "turns": ["Follow me."], "expected_status": "READY", "expected_intent": "FOLLOW", "expected_entities": {"person": "user"}}
+{"id": "unsupported_weather", "turns": ["What's the weather today?"], "expected_status": "UNSUPPORTED", "expected_intent": "UNSUPPORTED", "expected_entities": {}}
+{"id": "stop_cancels_retrieve", "turns": ["Bring me the bottle.", "Stop."], "expected_status": "CANCELLED", "expected_intent": "STOP", "expected_entities": {}}
+{"id": "replace_with_navigate", "turns": ["Bring me the bottle.", "Actually, take me to the bedroom."], "expected_status": "READY", "expected_intent": "NAVIGATE", "expected_entities": {"destination": "bedroom"}}
+{"id": "kitchen_phrase_merges", "turns": ["Bring me the bottle.", "The kitchen."], "expected_status": "READY", "expected_intent": "RETRIEVE", "expected_entities": {"object": "bottle", "source_location": "kitchen", "destination": "user"}}
+{"id": "follow_me_answer", "turns": ["Follow.", "Me."], "expected_status": "READY", "expected_intent": "FOLLOW", "expected_entities": {"person": "user"}}

@@ -1,0 +1,46 @@
+# Indoor location catalog for entity extraction.
+# Only listed aliases are accepted. Longest alias wins.
+
+locations:
+  - id: kitchen
+    aliases:
+      - kitchen
+  - id: kitchen_table
+    aliases:
+      - kitchen table
+      - kitchen-table
+  - id: living_room
+    aliases:
+      - living room
+      - living-room
+      - lounge
+      - hall
+      - hallway
+      - corridor
+  - id: bedroom
+    aliases:
+      - bedroom
+      - bed room
+  - id: office
+    aliases:
+      - office
+  - id: bathroom
+    aliases:
+      - bathroom
+      - restroom
+  - id: table
+    aliases:
+      - table
+  - id: charging_station
+    aliases:
+      - charging station
+      - charging-station
+      - docking station
+      - charger
+      - dock
+  - id: home
+    aliases:
+      - home
+  - id: base
+    aliases:
+      - base

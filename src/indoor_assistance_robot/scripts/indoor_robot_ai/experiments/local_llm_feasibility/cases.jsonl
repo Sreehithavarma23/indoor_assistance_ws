@@ -1,0 +1,10 @@
+{"id": "navigate_kitchen", "text": "Take me to the kitchen.", "notes": "Simple supported navigation request."}
+{"id": "retrieve_missing_source", "text": "Could you bring me the bottle?", "notes": "Likely missing source location; destination may be user from 'me'."}
+{"id": "retrieve_full", "text": "Get the bottle from the kitchen and bring it to me.", "notes": "Supported retrieve request with object, source, destination."}
+{"id": "context_reference_no_context", "text": "Bring it here.", "context": null, "notes": "Unresolved object and destination reference with no prior context."}
+{"id": "correction_destination", "text": "Actually, take me to the bedroom instead.", "context": "Previous command: Take me to the kitchen.", "notes": "Correction/replacement of prior destination."}
+{"id": "stop", "text": "Stop.", "notes": "Supported stop request."}
+{"id": "unsupported_weather", "text": "What is the weather today?", "notes": "Unsupported non-robot request."}
+{"id": "missing_location", "text": "Go there.", "notes": "Supported intent but missing/ambiguous destination."}
+{"id": "ambiguous_object", "text": "Bring me the cup from the kitchen.", "notes": "Cup may be ambiguous with cup/red_cup; destination may be user."}
+{"id": "multi_step_with_unsupported", "text": "Go to the kitchen, make me coffee, and bring me the bottle.", "notes": "Contains supported navigation/retrieve language plus unsupported coffee-making subtask."}

@@ -1,0 +1,69 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets
+.env
+.env.*
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Hugging Face / model caches outside models/
+.cache/
+
+# Recordings stay local
+data/raw_audio/**
+!data/raw_audio/.gitkeep
+
+# Evaluation reports and downloaded Whisper weights
+models/**
+!models/.gitkeep
+results/**
+!results/.gitkeep
+!results/asr/
+results/asr/**
+!results/asr/.gitkeep
+!results/nlu/
+results/nlu/**
+!results/nlu/.gitkeep
+!results/validation/
+results/validation/**
+!results/validation/.gitkeep
+!results/dialogue/
+results/dialogue/**
+!results/dialogue/.gitkeep
+!results/planning/
+results/planning/**
+!results/planning/.gitkeep
+!results/llm_planning/
+results/llm_planning/**
+!results/llm_planning/.gitkeep
+!results/pipeline/
+results/pipeline/**
+!results/pipeline/.gitkeep
+!results/pipeline/eval.json
+
+# Local LLM feasibility experiment artifacts
+experiments/local_llm_feasibility/models/
+experiments/local_llm_feasibility/wheelhouse/
+*.gguf
+*.whl

@@ -1,0 +1,23 @@
+# Phase 7 — constrained LLM-assisted planning.
+# Symbolic plans only. Does not execute the robot or call ROS 2.
+# Tests use the fake provider; live calls require credentials and --live.
+
+# Provider: fake | openai_compatible
+# "fake" never makes network calls (default for offline / CI).
+provider: fake
+
+# OpenAI-compatible chat completions endpoint (used only when provider=openai_compatible).
+api_base_url: https://api.openai.com/v1
+model: gpt-4o-mini
+api_key_env: OPENAI_API_KEY
+timeout_seconds: 30
+temperature: 0.0
+
+# After a parse/validation failure, ask the model once more with the error list.
+# Total provider calls = 1 + max_correction_attempts.
+max_correction_attempts: 1
+
+# If true and LLM planning fails after corrections, invoke Phase 6 TaskPlanner.
+# Result metadata records fallback_used=true and mode=DETERMINISTIC.
+# Default false so LLM failures are not hidden.
+fallback_to_deterministic: false

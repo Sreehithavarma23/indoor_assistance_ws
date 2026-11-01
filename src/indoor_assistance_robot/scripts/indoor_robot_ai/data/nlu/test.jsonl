@@ -1,0 +1,70 @@
+{"text": "Would you mind escorting me toward the kitchen?", "intent": "NAVIGATE", "entities": {"destination": "kitchen", "action": "navigate"}}
+{"text": "Kindly proceed into the living room.", "intent": "NAVIGATE", "entities": {"destination": "living_room", "action": "navigate"}}
+{"text": "I need you to walk over to the office.", "intent": "NAVIGATE", "entities": {"destination": "office", "action": "navigate"}}
+{"text": "Could we head toward the bedroom please?", "intent": "NAVIGATE", "entities": {"destination": "bedroom", "action": "navigate"}}
+{"text": "Usher me into the hallway.", "intent": "NAVIGATE", "entities": {"destination": "hallway"}}
+{"text": "I'm hoping to visit the bathroom.", "intent": "NAVIGATE", "entities": {"destination": "bathroom"}}
+{"text": "Make your way to the kitchen table.", "intent": "NAVIGATE", "entities": {"destination": "kitchen_table"}}
+{"text": "Please roll over to the charging station.", "intent": "NAVIGATE", "entities": {"destination": "charging_station"}}
+{"text": "Direct me to the lounge.", "intent": "NAVIGATE", "entities": {"destination": "living_room"}}
+{"text": "Let's move toward the table.", "intent": "NAVIGATE", "entities": {"destination": "table", "action": "navigate"}}
+{"text": "I'd like you to go into the office.", "intent": "NAVIGATE", "entities": {"destination": "office", "action": "navigate"}}
+{"text": "Can you steer me to the kitchen?", "intent": "NAVIGATE", "entities": {"destination": "kitchen"}}
+{"text": "Would you mind fetching the water bottle from the kitchen?", "intent": "RETRIEVE", "entities": {"object": "water_bottle", "source_location": "kitchen", "action": "retrieve"}}
+{"text": "I could use the red cup if you can find it.", "intent": "RETRIEVE", "entities": {"object": "red_cup"}}
+{"text": "Kindly collect the book off the table.", "intent": "RETRIEVE", "entities": {"object": "book", "source_location": "table", "action": "retrieve"}}
+{"text": "Can you snag the keys from the office?", "intent": "RETRIEVE", "entities": {"object": "keys", "source_location": "office"}}
+{"text": "Please hunt down the remote in the living room.", "intent": "RETRIEVE", "entities": {"object": "remote", "source_location": "living_room"}}
+{"text": "I'd appreciate it if you brought me the phone.", "intent": "RETRIEVE", "entities": {"object": "phone", "destination": "user"}}
+{"text": "Go grab the medicine from the bedroom.", "intent": "RETRIEVE", "entities": {"object": "medicine", "source_location": "bedroom", "action": "retrieve"}}
+{"text": "Could you pick up that glass for me?", "intent": "RETRIEVE", "entities": {"object": "glass", "action": "retrieve"}}
+{"text": "Be a dear and get the apple from the kitchen table.", "intent": "RETRIEVE", "entities": {"object": "apple", "source_location": "kitchen_table", "action": "retrieve"}}
+{"text": "I want you to retrieve the bag from the hallway.", "intent": "RETRIEVE", "entities": {"object": "bag", "source_location": "hallway", "action": "retrieve"}}
+{"text": "Mind bringing me the bottle?", "intent": "RETRIEVE", "entities": {"object": "bottle", "destination": "user", "action": "retrieve"}}
+{"text": "Please acquire the cup from the living room.", "intent": "RETRIEVE", "entities": {"object": "cup", "source_location": "living_room"}}
+{"text": "Would you kindly pass the bottle along to John?", "intent": "DELIVER", "entities": {"object": "bottle", "person": "john", "action": "deliver"}}
+{"text": "I need that book handed over to Mary.", "intent": "DELIVER", "entities": {"object": "book", "person": "mary"}}
+{"text": "Please see that the nurse gets the water bottle.", "intent": "DELIVER", "entities": {"object": "water_bottle", "person": "nurse", "action": "retrieve"}}
+{"text": "Can you run the keys over to John?", "intent": "DELIVER", "entities": {"object": "keys", "person": "john"}}
+{"text": "Kindly drop the remote off with Mary.", "intent": "DELIVER", "entities": {"object": "remote", "person": "mary"}}
+{"text": "Make sure the nurse receives the phone.", "intent": "DELIVER", "entities": {"object": "phone", "person": "nurse"}}
+{"text": "I'd like you to deliver the medicine to John.", "intent": "DELIVER", "entities": {"object": "medicine", "person": "john", "action": "deliver"}}
+{"text": "Could you take the apple across to Mary?", "intent": "DELIVER", "entities": {"object": "apple", "person": "mary", "action": "navigate"}}
+{"text": "Hand the bag over to the nurse would you?", "intent": "DELIVER", "entities": {"object": "bag", "person": "nurse", "action": "deliver"}}
+{"text": "Please get the glass to John.", "intent": "DELIVER", "entities": {"object": "glass", "person": "john", "action": "retrieve"}}
+{"text": "Would you mind tagging along with me?", "intent": "FOLLOW", "entities": {"person": "user"}}
+{"text": "Stay close behind me please.", "intent": "FOLLOW", "entities": {"person": "user"}}
+{"text": "Can you shadow me for a bit?", "intent": "FOLLOW", "entities": {"person": "user", "action": "follow"}}
+{"text": "Kindly walk along with John.", "intent": "FOLLOW", "entities": {"person": "john", "action": "navigate"}}
+{"text": "I need you to keep up with me.", "intent": "FOLLOW", "entities": {"person": "user"}}
+{"text": "Please trail after Mary.", "intent": "FOLLOW", "entities": {"person": "mary"}}
+{"text": "Come on and follow the nurse.", "intent": "FOLLOW", "entities": {"person": "nurse", "action": "follow"}}
+{"text": "I'd like you to accompany me.", "intent": "FOLLOW", "entities": {"person": "user", "action": "follow"}}
+{"text": "Would you please freeze in place?", "intent": "STOP", "entities": {"action": "stop"}}
+{"text": "I need you to stop immediately.", "intent": "STOP", "entities": {"action": "stop"}}
+{"text": "Kindly hold your position.", "intent": "STOP", "entities": {}}
+{"text": "Don't go any further.", "intent": "STOP", "entities": {}}
+{"text": "Cut it out and wait.", "intent": "STOP", "entities": {"action": "stop"}}
+{"text": "Please pause for a second.", "intent": "STOP", "entities": {"action": "stop"}}
+{"text": "Stop everything you're doing.", "intent": "STOP", "entities": {"action": "stop"}}
+{"text": "Hold on a minute.", "intent": "STOP", "entities": {}}
+{"text": "Would you mind heading back to the charging station?", "intent": "RETURN", "entities": {"destination": "charging_station", "action": "navigate"}}
+{"text": "Kindly return to your charger.", "intent": "RETURN", "entities": {"destination": "charging_station", "action": "return"}}
+{"text": "I need you back at the docking station.", "intent": "RETURN", "entities": {"destination": "charging_station"}}
+{"text": "Please make your way home.", "intent": "RETURN", "entities": {"destination": "home"}}
+{"text": "Can you retreat to base?", "intent": "RETURN", "entities": {"destination": "base"}}
+{"text": "It's time you went back to the dock.", "intent": "RETURN", "entities": {"destination": "charging_station"}}
+{"text": "Go ahead and return home now.", "intent": "RETURN", "entities": {"destination": "home", "action": "return"}}
+{"text": "Please withdraw to the charging station.", "intent": "RETURN", "entities": {"destination": "charging_station"}}
+{"text": "Could you fly me to the roof?", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "What's the capital of France?", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "Please compose a poem.", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "Switch off the air conditioner.", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "Can you hack the wifi?", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "Make me a sandwich from scratch.", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "Do a backflip.", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "Forecast tomorrow's rain.", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "Start a video call with dad.", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "Paint the wall blue.", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "Recite the national anthem.", "intent": "UNSUPPORTED", "entities": {}}
+{"text": "Calculate fifteen times forty.", "intent": "UNSUPPORTED", "entities": {}}

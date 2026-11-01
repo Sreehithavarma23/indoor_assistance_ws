@@ -1,0 +1,69 @@
+# Phase 4 task-validation policy.
+# This is not planning, clarification, or robot execution.
+# Softmax scores are model-internal, not real-world certainty.
+
+robot_intents:
+  - NAVIGATE
+  - RETRIEVE
+  - DELIVER
+  - FOLLOW
+  - STOP
+  - RETURN
+
+# Required slots for an executable interpretation.
+# require_any: at least one of the listed slots must be present.
+requirements:
+  NAVIGATE:
+    required:
+      - destination
+  RETRIEVE:
+    required:
+      - object
+      - source_location
+      - destination
+  DELIVER:
+    required:
+      - object
+    # Phase 3 grounds people as person and places as destination.
+    require_any:
+      - person
+      - destination
+  FOLLOW:
+    required:
+      - person
+  STOP:
+    required: []
+  RETURN:
+    required:
+      - destination
+
+# destination=user is allowed even though "user" is not a map location.
+# It is the explicit user_reference.value from config/nlu.yaml.
+allow_user_as_destination: true
+
+confidence:
+  # If the top two *robot* intents differ by less than this, the
+  # interpretation is AMBIGUOUS. Low confidence alone is not enough.
+  competing_margin: 0.05
+
+# Surface words that name a slot without grounding it to a catalog value.
+# If a required slot is empty and one of these appears, status is AMBIGUOUS
+# (unresolved reference), not merely INCOMPLETE (slot never mentioned).
+unresolved_references:
+  destination:
+    - there
+    - here
+    - over there
+  source_location:
+    - there
+    - here
+  object:
+    - it
+    - that
+    - that one
+    - this
+    - this one
+  person:
+    - them
+    - him
+    - her

@@ -1,0 +1,66 @@
+# Domain ontology for the indoor mobile-manipulator speech AI.
+# Intent labels match the runtime classifier (config/nlu.yaml).
+# Intent is NOT an action entity. Action entities are surface verbs only.
+
+version: "2026-10-18"
+intents:
+  NAVIGATE:
+    description: Move the mobile base (and optionally escort the user) to a named location.
+    required_slots: [destination]
+    optional_slots: [action]
+  RETRIEVE:
+    description: Fetch a known object, optionally from a source, optionally to a destination/user.
+    required_slots: [object]
+    optional_slots: [source_location, destination, action]
+    note: Runtime validation may require source+destination for a complete retrieve plan.
+  DELIVER:
+    description: Hand an already-held or named object to a person or place.
+    required_slots: [object]
+    optional_slots: [person, destination, action]
+  FOLLOW:
+    description: Continuously follow a person.
+    required_slots: [person]
+    optional_slots: [action]
+  STOP:
+    description: Cancel / halt current motion. Not a navigation goal.
+    required_slots: []
+    optional_slots: [action]
+  RETURN:
+    description: Return to a known home/dock location (usually charging_station).
+    required_slots: [destination]
+    optional_slots: [action]
+  UNSUPPORTED:
+    description: Out of capability, unrelated chat, impossible task, or non-robot request.
+    required_slots: []
+    optional_slots: []
+
+entity_types:
+  object:
+    description: Manipulable catalog object (must ground to config/objects.yaml).
+  source_location:
+    description: Where to get an object from (catalog location).
+  destination:
+    description: Where to go or deliver (catalog location or user).
+  person:
+    description: Named person or user to follow / deliver to.
+  action:
+    description: Surface verb sense (navigate/retrieve/deliver/follow/stop/return). Not the intent label.
+  reference:
+    description: Pronoun/deixis referring to a prior entity (it/there/that). Resolved in dialogue, not invented.
+  task_order:
+    description: Ordered multi-step subtasks when the utterance contains sequential instructions.
+
+annotation_guidelines:
+  - Do not label unsupported physical tasks as supported intents even if wording resembles NAVIGATE/RETRIEVE.
+  - Do not invent object/location/person IDs outside the catalogs.
+  - Negated movement ("don't go", "don't move") is STOP, not NAVIGATE.
+  - "Don't stop" is NOT STOP; treat as unsupported or ambiguous continuation unless clarified.
+  - Intent and action entity must not be conflated: intent=RETRIEVE may have action=retrieve or none.
+  - Multi-step commands annotate task_order as an ordered list of {intent, entities}.
+  - Synthetic paraphrases must set source=synthetic_paraphrase and a family_id.
+  - Public-assistant OOS examples are auxiliary negatives, not robot capability labels.
+
+catalogs:
+  objects_config: config/objects.yaml
+  locations_config: config/locations.yaml
+  persons_config: config/persons.yaml

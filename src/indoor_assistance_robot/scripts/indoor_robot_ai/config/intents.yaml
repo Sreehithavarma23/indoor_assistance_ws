@@ -1,0 +1,11 @@
+# Initial supported intents from the project specification.
+# This is a catalog, not execution logic.
+# Required slots per intent are defined in config/validation.yaml.
+
+intents:
+  - NAVIGATE
+  - RETRIEVE
+  - DELIVER
+  - FOLLOW
+  - STOP
+  - RETURN

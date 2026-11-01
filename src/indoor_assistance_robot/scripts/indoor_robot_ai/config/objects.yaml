@@ -1,0 +1,65 @@
+# Indoor object catalog for entity extraction.
+# Only listed aliases are accepted. Longest alias wins.
+
+objects:
+  - id: water_bottle
+    aliases:
+      - water bottle
+      - water-bottle
+      - waterbottle
+      - bottle
+  - id: red_bottle
+    aliases:
+      - red bottle
+      - red-bottle
+  - id: blue_bottle
+    aliases:
+      - blue bottle
+      - blue-bottle
+      - soda can
+      - can
+  - id: green_bottle
+    aliases:
+      - green bottle
+      - green-bottle
+  - id: gray_box
+    aliases:
+      - gray box
+      - grey box
+      - box
+      - package
+  - id: red_cup
+    aliases:
+      - red cup
+      - red-cup
+  - id: cup
+    aliases:
+      - cup
+  - id: book
+    aliases:
+      - book
+  - id: keys
+    aliases:
+      - keys
+      - key
+  - id: medicine
+    aliases:
+      - medicine
+      - medication
+  - id: phone
+    aliases:
+      - phone
+      - mobile
+  - id: remote
+    aliases:
+      - remote control
+      - remote
+  - id: apple
+    aliases:
+      - apple
+  - id: glass
+    aliases:
+      - glass
+  - id: bag
+    aliases:
+      - bag

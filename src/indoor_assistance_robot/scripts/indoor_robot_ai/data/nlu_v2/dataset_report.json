@@ -1,0 +1,94 @@
+{
+  "n_total": 700,
+  "per_split": {
+    "train": 416,
+    "dev": 79,
+    "test_indomain": 90,
+    "test_paraphrase": 55,
+    "test_oos": 60
+  },
+  "intent_counts_global": {
+    "DELIVER": 107,
+    "FOLLOW": 50,
+    "NAVIGATE": 233,
+    "RETRIEVE": 137,
+    "RETURN": 52,
+    "STOP": 41,
+    "UNSUPPORTED": 80
+  },
+  "intent_counts_per_split": {
+    "train": {
+      "DELIVER": 59,
+      "FOLLOW": 33,
+      "NAVIGATE": 151,
+      "RETRIEVE": 77,
+      "RETURN": 28,
+      "STOP": 31,
+      "UNSUPPORTED": 37
+    },
+    "dev": {
+      "DELIVER": 13,
+      "FOLLOW": 6,
+      "NAVIGATE": 17,
+      "RETRIEVE": 18,
+      "RETURN": 12,
+      "STOP": 1,
+      "UNSUPPORTED": 12
+    },
+    "test_indomain": {
+      "DELIVER": 18,
+      "FOLLOW": 6,
+      "NAVIGATE": 31,
+      "RETRIEVE": 22,
+      "RETURN": 6,
+      "STOP": 2,
+      "UNSUPPORTED": 5
+    },
+    "test_paraphrase": {
+      "DELIVER": 12,
+      "FOLLOW": 3,
+      "NAVIGATE": 10,
+      "RETRIEVE": 12,
+      "RETURN": 5,
+      "STOP": 4,
+      "UNSUPPORTED": 9
+    },
+    "test_oos": {
+      "DELIVER": 5,
+      "FOLLOW": 2,
+      "NAVIGATE": 24,
+      "RETRIEVE": 8,
+      "RETURN": 1,
+      "STOP": 3,
+      "UNSUPPORTED": 17
+    }
+  },
+  "source_counts": {
+    "asr_noise_augmented": 85,
+    "legacy_hand_authored": 265,
+    "synthetic_template": 297,
+    "human_authored": 12,
+    "synthetic_paraphrase": 15,
+    "adversarial_edge": 17,
+    "public_aux_oos": 9
+  },
+  "entity_slot_counts": {
+    "object": 243,
+    "person": 157,
+    "action": 568,
+    "destination": 342,
+    "source_location": 116
+  },
+  "n_with_task_order": 9,
+  "n_families": 471,
+  "leakage_issues": [],
+  "near_duplicate_prefix_cross_split": 71,
+  "limitations": [
+    "Most utterances are synthetic_template or synthetic_paraphrase, not natural speech.",
+    "ASR noise is approximate character/word corruption, not real Whisper errors.",
+    "public_aux_oos examples are hand-authored methodology references, not redistributed CLINC/SNIPS/MASSIVE rows.",
+    "Frozen test sets are project-internal; they are not an external independent benchmark.",
+    "No consented multi-speaker audio corpus is bundled; ASR WER cannot be claimed from this release.",
+    "Multi-step commands use a single primary intent label for classifier training; task_order is auxiliary."
+  ]
+}

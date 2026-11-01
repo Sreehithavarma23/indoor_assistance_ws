@@ -1,0 +1,4 @@
+audio_path,reference,critical_terms
+# Copy this file to manifest.csv and add your own recordings.
+# Example row (uncomment after you record the wav):
+# data/raw_audio/navigate_kitchen.wav,go to the kitchen,kitchen

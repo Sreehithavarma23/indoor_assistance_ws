@@ -1,0 +1,16 @@
+{"text": "Take me to the kitchen.", "status": "VALID"}
+{"text": "Follow me.", "status": "VALID"}
+{"text": "Stop.", "status": "VALID"}
+{"text": "Return to the charging station.", "status": "VALID"}
+{"text": "Bring me the bottle from the kitchen.", "status": "VALID"}
+{"text": "Give the bottle to John.", "status": "VALID"}
+{"text": "Go to the kitchen.", "status": "VALID"}
+{"text": "Please halt.", "status": "VALID"}
+{"text": "Bring me the bottle.", "status": "INCOMPLETE"}
+{"text": "Get the book.", "status": "INCOMPLETE"}
+{"text": "Give the bottle.", "status": "INCOMPLETE"}
+{"text": "Go there.", "status": "AMBIGUOUS"}
+{"text": "Bring it from the kitchen.", "status": "AMBIGUOUS"}
+{"text": "What's the weather today?", "status": "UNSUPPORTED"}
+{"text": "Tell me a joke.", "status": "UNSUPPORTED"}
+{"text": "What's your name?", "status": "UNSUPPORTED"}

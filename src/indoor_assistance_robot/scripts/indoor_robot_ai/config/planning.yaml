@@ -1,0 +1,19 @@
+# Phase 6 deterministic high-level planning.
+# Symbolic actions only — not robot execution, ROS 2, or LLM planning.
+
+# Intents the planner may accept when DialogueStatus is READY.
+plannable_intents:
+  - NAVIGATE
+  - RETRIEVE
+  - DELIVER
+  - FOLLOW
+  - STOP
+  - RETURN
+
+# destination=user maps to NAVIGATE_TO_USER rather than a map waypoint.
+user_destination_value: user
+
+# DELIVER does not receive source_location from Phase 4.
+# Planning assumes the object is already in possession (grasp state is not
+# tracked in Phases 1–5). Future execution must verify grasp before deliver.
+deliver_assumes_object_held: true

@@ -1,0 +1,188 @@
+{
+  "n_cases": 13,
+  "n_success": 13,
+  "end_to_end_success_rate": 1.0,
+  "n_deterministic_cases": 10,
+  "n_llm_cases": 3,
+  "intent_accuracy": 1.0,
+  "n_intent_labeled": 9,
+  "dialogue_status_accuracy": 1.0,
+  "n_dialogue_labeled": 10,
+  "plan_sequence_accuracy": 1.0,
+  "n_plan_sequence_labeled": 8,
+  "mean_total_latency_ms": 25.94580099999068,
+  "live_provider_used": false,
+  "note": "Hand-authored offline development set. Not a real-world ASR/NLU/robot benchmark. Metrics: end_to_end_success_rate = fraction of cases matching all labeled expectations; intent_accuracy / dialogue_status_accuracy / plan_sequence_accuracy are labeled subsets only.",
+  "items": [
+    {
+      "id": "nav_kitchen",
+      "success": true,
+      "mode": "deterministic",
+      "final_status": "PLANNED",
+      "dialogue_status": "READY",
+      "intent": "NAVIGATE",
+      "action_types": [
+        "NAVIGATE_TO"
+      ],
+      "planning_mode": "DETERMINISTIC",
+      "total_ms": 105.41226099996948
+    },
+    {
+      "id": "retrieve_full",
+      "success": true,
+      "mode": "deterministic",
+      "final_status": "PLANNED",
+      "dialogue_status": "READY",
+      "intent": "RETRIEVE",
+      "action_types": [
+        "NAVIGATE_TO",
+        "SEARCH_OBJECT",
+        "APPROACH_OBJECT",
+        "GRASP_OBJECT",
+        "NAVIGATE_TO_USER",
+        "DELIVER_OBJECT"
+      ],
+      "planning_mode": "DETERMINISTIC",
+      "total_ms": 19.201548000069124
+    },
+    {
+      "id": "deliver_john",
+      "success": true,
+      "mode": "deterministic",
+      "final_status": "PLANNED",
+      "dialogue_status": "READY",
+      "intent": "DELIVER",
+      "action_types": [
+        "NAVIGATE_TO_PERSON",
+        "DELIVER_OBJECT"
+      ],
+      "planning_mode": "DETERMINISTIC",
+      "total_ms": 18.277196999974876
+    },
+    {
+      "id": "follow_me",
+      "success": true,
+      "mode": "deterministic",
+      "final_status": "PLANNED",
+      "dialogue_status": "READY",
+      "intent": "FOLLOW",
+      "action_types": [
+        "FOLLOW_PERSON"
+      ],
+      "planning_mode": "DETERMINISTIC",
+      "total_ms": 16.830133000098613
+    },
+    {
+      "id": "stop",
+      "success": true,
+      "mode": "deterministic",
+      "final_status": "PLANNED",
+      "dialogue_status": "READY",
+      "intent": "STOP",
+      "action_types": [
+        "STOP"
+      ],
+      "planning_mode": "DETERMINISTIC",
+      "total_ms": 16.27100899997913
+    },
+    {
+      "id": "return_charge",
+      "success": true,
+      "mode": "deterministic",
+      "final_status": "PLANNED",
+      "dialogue_status": "READY",
+      "intent": "RETURN",
+      "action_types": [
+        "NAVIGATE_TO"
+      ],
+      "planning_mode": "DETERMINISTIC",
+      "total_ms": 18.703153999922506
+    },
+    {
+      "id": "retrieve_incomplete",
+      "success": true,
+      "mode": "deterministic",
+      "final_status": "CLARIFICATION_REQUIRED",
+      "dialogue_status": "CLARIFICATION_REQUIRED",
+      "intent": "RETRIEVE",
+      "action_types": null,
+      "planning_mode": null,
+      "total_ms": 25.231849999954648
+    },
+    {
+      "id": "retrieve_clarify",
+      "success": true,
+      "mode": "deterministic",
+      "final_status": "PLANNED",
+      "dialogue_status": "READY",
+      "intent": "RETRIEVE",
+      "action_types": [
+        "NAVIGATE_TO",
+        "SEARCH_OBJECT",
+        "APPROACH_OBJECT",
+        "GRASP_OBJECT",
+        "NAVIGATE_TO_USER",
+        "DELIVER_OBJECT"
+      ],
+      "planning_mode": "DETERMINISTIC",
+      "total_ms": 38.931209999987004
+    },
+    {
+      "id": "unsupported_weather",
+      "success": true,
+      "mode": "deterministic",
+      "final_status": "UNSUPPORTED",
+      "dialogue_status": "UNSUPPORTED",
+      "intent": "UNSUPPORTED",
+      "action_types": null,
+      "planning_mode": null,
+      "total_ms": 4.6472469999798705
+    },
+    {
+      "id": "go_there",
+      "success": true,
+      "mode": "deterministic",
+      "final_status": "CLARIFICATION_REQUIRED",
+      "dialogue_status": "CLARIFICATION_REQUIRED",
+      "intent": "NAVIGATE",
+      "action_types": null,
+      "planning_mode": null,
+      "total_ms": 18.434531000025345
+    },
+    {
+      "id": "llm_nav_ok",
+      "success": true,
+      "mode": "llm",
+      "final_status": "PLANNED",
+      "dialogue_status": "READY",
+      "intent": "NAVIGATE",
+      "action_types": [
+        "NAVIGATE_TO"
+      ],
+      "planning_mode": "LLM_ASSISTED",
+      "total_ms": 19.61069599997245
+    },
+    {
+      "id": "llm_invalid_action",
+      "success": true,
+      "mode": "llm",
+      "final_status": "FAILED",
+      "dialogue_status": "READY",
+      "intent": "NAVIGATE",
+      "action_types": [],
+      "planning_mode": "LLM_ASSISTED",
+      "total_ms": 18.00412399995821
+    },
+    {
+      "id": "llm_provider_fail",
+      "success": true,
+      "mode": "llm",
+      "final_status": "FAILED",
+      "dialogue_status": "READY",
+      "intent": "NAVIGATE",
+      "action_types": [],
+      "planning_mode": "LLM_ASSISTED",
+      "total_ms": 17.74045299998761
+    }
+  ]
+}

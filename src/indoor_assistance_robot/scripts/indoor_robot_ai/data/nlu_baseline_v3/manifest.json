@@ -1,0 +1,49 @@
+{
+  "created_from": "data/nlu_v2/splits/train.jsonl",
+  "dataset_version": "nlu_baseline_v3",
+  "evaluation_data": {
+    "dev": {
+      "status": "not_available_independent_provenance_missing"
+    },
+    "test_indomain": {
+      "status": "not_available_independent_provenance_missing"
+    },
+    "test_oos": {
+      "status": "not_available_independent_provenance_missing"
+    },
+    "test_paraphrase": {
+      "status": "not_available_independent_family_provenance_missing"
+    },
+    "test_unseen_template": {
+      "status": "not_available_template_ids_missing"
+    }
+  },
+  "excluded_legacy_test_manifest": "legacy_test_exclusion.json",
+  "excluded_legacy_test_rows": 70,
+  "of_which_were_in_v2_train": 42,
+  "provenance_limitations": [
+    "Author/session/source IDs are not present in source data.",
+    "Template IDs are not present; they were not inferred from surface text.",
+    "Recorded legacy family IDs are sentence-derived singletons, not verified paraphrase families.",
+    "No independent evaluation examples were manufactured or promoted from frozen v2 splits."
+  ],
+  "purpose": "Curated training-only set; no independent evaluation rows are asserted.",
+  "schema_version": 1,
+  "train": {
+    "all_source_ids_known": false,
+    "all_template_ids_known": false,
+    "label_counts": {
+      "DELIVER": 54,
+      "FOLLOW": 25,
+      "NAVIGATE": 143,
+      "RETRIEVE": 70,
+      "RETURN": 24,
+      "STOP": 24,
+      "UNSUPPORTED": 34
+    },
+    "normalized_exact_duplicate_groups": 0,
+    "path": "train.jsonl",
+    "rows": 374,
+    "sha256": "7c0cfecd90c572ade6a090a12b77d116add96223c3ea29a78356dc4d608b22dc"
+  }
+}

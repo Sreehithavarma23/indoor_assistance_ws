@@ -1,0 +1,175 @@
+# Phase 3 NLU settings. Not validation, planning, or robot control.
+
+# Intent backend behind NLUEngine:
+#   tfidf     — TF-IDF + Logistic Regression (default baseline)
+#   embedding — pretrained MiniLM embeddings + Logistic Regression head
+# Switch only after comparing results/nlu_v2/model_comparison.json.
+intent_backend: tfidf
+# Optional overrides (defaults live under models/nlu/):
+tfidf_model_path: models/nlu/baseline_v3/intent_tfidf_lr.joblib
+# embedding_model_dir: models/nlu/embedding_minilm
+
+classifier_labels:
+  - NAVIGATE
+  - RETRIEVE
+  - DELIVER
+  - FOLLOW
+  - STOP
+  - RETURN
+  - UNSUPPORTED
+
+# Logged by the classifier and used only for the narrow bare-command
+# STOP→NAVIGATE recovery in nlu._action_intent_correction (e.g. "Go there.").
+# It does NOT rewrite arbitrary low-confidence labels to UNSUPPORTED:
+# 7-way softmax on paraphrases is often diffuse even when argmax is correct.
+unsupported_confidence_threshold: 0.40
+
+normalization:
+  lowercase: true
+  replace_hyphens: true
+  strip_punctuation: true
+
+# "me" / "myself" become destination=user or person=user ONLY with these cues.
+# "take me to the kitchen" is NOT a user destination: the location after "to" is.
+user_reference:
+  value: user
+  tokens:
+    - me
+    - myself
+  destination_cues:
+    - bring me
+    - bringing me
+    - brought me
+    - get me
+    - fetch me
+    - give me
+    - hand me
+    - pass me
+  person_cues:
+    - follow me
+    - with me
+    - behind me
+    - after me
+    # FOLLOW + "me"/"myself" is also grounded in mentions_to_slots when
+    # intent is FOLLOW (covers shadow/accompany without tagging NAVIGATE).
+  # If a destination cue is immediately followed by "to", treat "me" as rider, not destination.
+  rider_after_cue: true
+
+source_cues:
+  - from
+  - out of
+  - "off"
+
+destination_cues:
+  - to
+  - into
+  - toward
+  - towards
+
+# Phrase-level cues for requests outside the mobile manipulator skill set.
+# Matched with word boundaries on normalized text. Used by NLU recovery and
+# as a validation safety net so unsupported requests are not clarified as
+# incomplete robot tasks.
+unsupported_capability_phrases:
+  - fly
+  - flying
+  - compose
+  - poem
+  - hack
+  - wifi
+  - sandwich
+  - from scratch
+  - paint
+  - recite
+  - anthem
+  - backflip
+  - somersault
+  - video call
+  - facetime
+  - face time
+  - air conditioner
+  - switch off
+  - turn off
+  - turn on
+  - unlock
+  - cook
+  - dance
+  - sing
+  - jump
+  - translate
+  - order a
+  - book a
+  - send an email
+  - clean the floor
+  - water the plants
+
+actions:
+  - id: navigate
+    aliases:
+      - go
+      - take
+      - head
+      - heading
+      - walk
+      - walking
+      - move
+      - moving
+      - navigate
+      - escort
+      - escorting
+      - proceed
+      - proceeding
+      - drive
+      - driving
+      - roll
+      - rolling
+  - id: retrieve
+    aliases:
+      - bring
+      - bringing
+      - get
+      - gets
+      - getting
+      - fetch
+      - fetching
+      - grab
+      - grabbing
+      - pick
+      - picking
+      - retrieve
+      - retrieving
+      - collect
+      - collecting
+      - obtain
+      - obtaining
+  - id: deliver
+    aliases:
+      - give
+      - giving
+      - hand
+      - handing
+      - deliver
+      - delivering
+      - pass
+      - passing
+  - id: follow
+    aliases:
+      - follow
+      - following
+      - accompany
+      - accompanying
+      - shadow
+      - shadowing
+  - id: stop
+    aliases:
+      - stop
+      - stopping
+      - halt
+      - freeze
+      - wait
+      - pause
+      - abort
+  - id: return
+    aliases:
+      - return
+      - returning

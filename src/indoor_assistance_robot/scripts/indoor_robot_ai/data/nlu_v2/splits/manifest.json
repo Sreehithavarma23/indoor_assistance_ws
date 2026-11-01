@@ -1,0 +1,101 @@
+{
+  "splits": {
+    "train": 416,
+    "dev": 79,
+    "test_indomain": 90,
+    "test_paraphrase": 55,
+    "test_oos": 60
+  },
+  "intent_counts": {
+    "train": {
+      "DELIVER": 59,
+      "FOLLOW": 33,
+      "NAVIGATE": 151,
+      "RETRIEVE": 77,
+      "RETURN": 28,
+      "STOP": 31,
+      "UNSUPPORTED": 37
+    },
+    "dev": {
+      "DELIVER": 13,
+      "FOLLOW": 6,
+      "NAVIGATE": 17,
+      "RETRIEVE": 18,
+      "RETURN": 12,
+      "STOP": 1,
+      "UNSUPPORTED": 12
+    },
+    "test_indomain": {
+      "DELIVER": 18,
+      "FOLLOW": 6,
+      "NAVIGATE": 31,
+      "RETRIEVE": 22,
+      "RETURN": 6,
+      "STOP": 2,
+      "UNSUPPORTED": 5
+    },
+    "test_paraphrase": {
+      "DELIVER": 12,
+      "FOLLOW": 3,
+      "NAVIGATE": 10,
+      "RETRIEVE": 12,
+      "RETURN": 5,
+      "STOP": 4,
+      "UNSUPPORTED": 9
+    },
+    "test_oos": {
+      "DELIVER": 5,
+      "FOLLOW": 2,
+      "NAVIGATE": 24,
+      "RETRIEVE": 8,
+      "RETURN": 1,
+      "STOP": 3,
+      "UNSUPPORTED": 17
+    }
+  },
+  "source_counts": {
+    "train": {
+      "asr_noise_augmented": 49,
+      "legacy_hand_authored": 164,
+      "synthetic_template": 177,
+      "human_authored": 7,
+      "synthetic_paraphrase": 8,
+      "adversarial_edge": 8,
+      "public_aux_oos": 3
+    },
+    "dev": {
+      "human_authored": 3,
+      "legacy_hand_authored": 31,
+      "synthetic_template": 32,
+      "asr_noise_augmented": 10,
+      "synthetic_paraphrase": 1,
+      "adversarial_edge": 1,
+      "public_aux_oos": 1
+    },
+    "test_indomain": {
+      "asr_noise_augmented": 14,
+      "legacy_hand_authored": 28,
+      "synthetic_template": 42,
+      "synthetic_paraphrase": 3,
+      "adversarial_edge": 2,
+      "public_aux_oos": 1
+    },
+    "test_paraphrase": {
+      "legacy_hand_authored": 21,
+      "synthetic_template": 25,
+      "asr_noise_augmented": 5,
+      "synthetic_paraphrase": 1,
+      "adversarial_edge": 2,
+      "public_aux_oos": 1
+    },
+    "test_oos": {
+      "legacy_hand_authored": 21,
+      "human_authored": 2,
+      "asr_noise_augmented": 7,
+      "synthetic_paraphrase": 2,
+      "synthetic_template": 21,
+      "adversarial_edge": 4,
+      "public_aux_oos": 3
+    }
+  }
+}

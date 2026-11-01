@@ -1,0 +1,16 @@
+# Named people the extractor can ground.
+# Pronouns such as "me" are handled in config/nlu.yaml, not as open-ended synonyms.
+
+persons:
+  - id: john
+    aliases:
+      - john
+  - id: mary
+    aliases:
+      - mary
+  - id: nurse
+    aliases:
+      - nurse
+  - id: user
+    aliases:
+      - user

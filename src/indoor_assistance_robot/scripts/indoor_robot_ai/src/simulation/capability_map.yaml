@@ -1,0 +1,79 @@
+# Maps symbolic AI action types to verified interfaces in ~/instrument_robot_ws.
+# Only names observed in that workspace are listed. Missing interfaces stay null.
+# This file does not invent Grasp actions or household object databases.
+
+workspace: instrument_robot_ws  # Local reference workspace; not bundled here
+domain_note: >
+  The available simulator is a surgical OT instrument-delivery stack
+  (Nav2 + MoveIt + Gazebo tray attach), not a generic household manipulator.
+  Indoor assistance intents in this AI project are therefore dry-run only
+  until a matching execution contract exists.
+
+interfaces:
+  navigate_base:
+    verified: true
+    mechanism: Nav2 BasicNavigator.goToPose (nav2_simple_commander)
+    action_interface: nav2_msgs/action/NavigateToPose
+    evidence:
+      - surgical_task_manager/surgical_task_manager/surgery_orchestrator.py
+      - surgical_description/launch/nav2_launch.py
+    frames: [map, odom, base_link]
+  cmd_vel:
+    verified: true
+    topic: /cmd_vel
+    type: geometry_msgs/msg/Twist
+    evidence:
+      - surgical_description/urdf/gazebo_diffdrive.xacro
+  arm_follow_joint_trajectory:
+    verified: true
+    action: /arm_position_controller/follow_joint_trajectory
+    type: control_msgs/action/FollowJointTrajectory
+  tray_attach:
+    verified: true
+    services: [/ATTACHLINK, /DETACHLINK]
+    type: linkattacher_msgs/srv/AttachLink|DetachLink
+    note: Gazebo link attach — not a finger Grasp API.
+  surgery_request_topic:
+    verified: true
+    topic: /surgery_request
+    type: std_msgs/String
+    note: Domain-specific surgery name strings, not household NAVIGATE intents.
+  grasp_action:
+    verified: false
+    action: null
+    note: No Grasp action exists under instrument_robot_ws/src.
+  surgical_interfaces_msgs:
+    verified: false
+    note: Package surgical_interfaces is an empty stub (no .action/.srv).
+
+action_bindings:
+  NAVIGATE_TO:
+    status: dry_run_only
+    intended_interface: navigate_base
+    requires: [destination mapped to a known Nav2 pose]
+    available_today: false
+    reason: Household location ids (kitchen, bedroom, …) are not in surgical locations.yaml.
+  NAVIGATE_TO_USER:
+    status: unsupported_in_sim
+    intended_interface: null
+  NAVIGATE_TO_PERSON:
+    status: unsupported_in_sim
+    intended_interface: null
+  SEARCH_OBJECT:
+    status: unsupported_in_sim
+    intended_interface: null
+    reason: No household object detector contract for catalog objects.
+  APPROACH_OBJECT:
+    status: unsupported_in_sim
+  GRASP_OBJECT:
+    status: unsupported_in_sim
+    reason: No Grasp action; tray attach is surgical-specific.
+  DELIVER_OBJECT:
+    status: unsupported_in_sim
+  FOLLOW_PERSON:
+    status: unsupported_in_sim
+  STOP:
+    status: dry_run_only
+    intended_interface: cmd_vel
+    note: Publishing zero Twist on /cmd_vel is possible when Gazebo is up; not wired by default.
+    available_today: false

@@ -1,0 +1,120 @@
+{
+  "type": "object",
+  "required": [
+    "intent",
+    "entities",
+    "missing_information",
+    "ambiguity",
+    "unsupported_task_reasons",
+    "corrections",
+    "contextual_references",
+    "multi_step_task_coverage"
+  ],
+  "properties": {
+    "intent": {
+      "type": "string",
+      "allowed": [
+        "NAVIGATE",
+        "RETRIEVE",
+        "DELIVER",
+        "FOLLOW",
+        "STOP",
+        "RETURN",
+        "UNSUPPORTED",
+        "UNKNOWN"
+      ]
+    },
+    "entities": {
+      "type": "object",
+      "properties": {
+        "object": {"type": ["string", "null"]},
+        "source_location": {"type": ["string", "null"]},
+        "destination": {"type": ["string", "null"]},
+        "person": {"type": ["string", "null"]}
+      }
+    },
+    "missing_information": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "ambiguity": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "reason", "candidates"],
+        "properties": {
+          "field": {"type": "string"},
+          "reason": {"type": "string"},
+          "candidates": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "unsupported_task_reasons": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["target", "replacement", "reason"],
+        "properties": {
+          "target": {"type": "string"},
+          "replacement": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      }
+    },
+    "contextual_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "resolved_to", "status"],
+        "properties": {
+          "text": {"type": "string"},
+          "resolved_to": {"type": ["string", "null"]},
+          "status": {"type": "string"}
+        }
+      }
+    },
+    "multi_step_task_coverage": {
+      "type": "object",
+      "required": ["has_multi_step_request", "steps"],
+      "properties": {
+        "has_multi_step_request": {"type": "boolean"},
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "description",
+              "support_status",
+              "required_entities",
+              "missing_information",
+              "ambiguity"
+            ],
+            "properties": {
+              "description": {"type": "string"},
+              "support_status": {
+                "type": "string",
+                "allowed": ["SUPPORTED", "UNSUPPORTED", "UNKNOWN"]
+              },
+              "required_entities": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "missing_information": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "ambiguity": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

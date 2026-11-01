@@ -1,0 +1,60 @@
+{
+  "experiment_name": "phase_9a_local_llm_feasibility",
+  "model": {
+    "repository": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+    "expected_size_bytes": 1117320736,
+    "license": "Apache-2.0",
+    "local_path": "models/qwen2.5-1.5b-instruct-q4_k_m.gguf",
+    "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e"
+  },
+  "runtime": {
+    "n_ctx": 2048,
+    "n_threads": 2,
+    "n_gpu_layers": 0,
+    "max_tokens": 256,
+    "temperature": 0.0,
+    "top_p": 0.9,
+    "repeat_penalty": 1.05,
+    "memory_stop_available_mib": 700,
+    "swap_drop_stop_mib": 512
+  },
+  "supported_intents": [
+    "NAVIGATE",
+    "RETRIEVE",
+    "DELIVER",
+    "FOLLOW",
+    "STOP",
+    "RETURN"
+  ],
+  "catalogs": {
+    "objects": [
+      "water_bottle",
+      "bottle",
+      "red_cup",
+      "cup",
+      "book",
+      "keys",
+      "medicine",
+      "phone",
+      "remote",
+      "apple",
+      "glass",
+      "bag"
+    ],
+    "locations": [
+      "kitchen",
+      "kitchen_table",
+      "living_room",
+      "bedroom",
+      "office",
+      "hallway",
+      "bathroom",
+      "table",
+      "charging_station",
+      "home",
+      "base"
+    ],
+    "persons": ["john", "mary", "nurse", "user"]
+  }
+}

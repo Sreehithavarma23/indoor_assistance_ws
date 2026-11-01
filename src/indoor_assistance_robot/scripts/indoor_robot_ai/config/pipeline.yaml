@@ -1,0 +1,9 @@
+# Phase 8 — end-to-end AI pipeline orchestration.
+# Coordinates Phases 2–7. Does not execute robot actions.
+
+# Default planning mode when the CLI/API omits --mode.
+default_planning_mode: deterministic
+
+# If true, empty ASR transcripts return a clear pipeline failure
+# instead of feeding an empty string into dialogue.
+reject_empty_transcript: true

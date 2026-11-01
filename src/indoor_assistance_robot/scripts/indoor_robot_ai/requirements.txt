@@ -1,0 +1,21 @@
+# Phase 1 — foundation
+PyYAML>=6.0
+pytest>=8.0
+
+# Phase 2 — speech processing
+# No NLU, LLM, or ROS 2 libraries.
+numpy>=1.23.0
+soundfile>=0.12.0
+sounddevice>=0.4.6
+faster-whisper>=1.0.3
+
+# Phase 3 — NLU baseline (TF-IDF + Logistic Regression)
+scikit-learn>=1.3.0
+joblib>=1.3.0
+
+# Optional modern intent path B (pretrained encoder + logistic head).
+# Encoder weights stay pretrained; only the classifier head is trained.
+sentence-transformers>=2.2.0
+
+# Phase 7 — constrained LLM planning uses the stdlib (urllib) only.
+# No openai SDK required. Live calls need OPENAI_API_KEY in the environment.

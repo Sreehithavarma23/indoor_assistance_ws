@@ -1,0 +1,39 @@
+# Speech-processing settings. This is not NLU or robot behavior.
+
+sample_rate: 16000
+
+preprocess:
+  remove_dc: true
+  normalize: true
+  target_peak: 0.95
+
+# Energy VAD is a simple baseline: trim leading/trailing silence and
+# reject recordings that contain no speech. It does not classify words.
+vad:
+  enabled: true
+  frame_ms: 30
+  energy_floor: 0.01
+  energy_multiplier: 3.0
+  # Cap the adaptive threshold so a fully-voiced clip is not treated as silence.
+  energy_max_threshold: 0.08
+  min_speech_ms: 150
+  pad_ms: 200
+  merge_gap_ms: 300
+
+asr:
+  model_size: base
+  device: auto
+  compute_type: default
+  language: en
+  beam_size: 5
+  # Faster-Whisper's built-in Silero VAD. Complements the energy VAD above.
+  vad_filter: true
+  download_root: models/whisper
+
+microphone:
+  channels: 1
+  default_duration_seconds: 5
+
+evaluation:
+  lowercase: true
+  remove_punctuation: true

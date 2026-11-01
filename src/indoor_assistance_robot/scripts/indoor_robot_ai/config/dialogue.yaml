@@ -1,0 +1,53 @@
+# Phase 5 dialogue / clarification policy.
+# Deterministic templates only. No LLM. Not task planning.
+
+max_clarification_turns: 3
+history_size: 8
+
+# While awaiting clarification, these intents interrupt and cancel.
+interrupt_intents:
+  - STOP
+
+# User-reference tokens used only when filling a pending person/destination slot.
+user_tokens:
+  - me
+  - myself
+
+# Leading cue words stripped before catalog matching on short answers.
+answer_cues:
+  - from
+  - to
+  - into
+  - toward
+  - towards
+  - at
+  - the
+  - a
+  - an
+
+# Clarification templates. Placeholders: {object}, {person}, {destination}, {source_location}
+# Keys: intent then slot. "default" is the fallback for a slot across intents.
+templates:
+  RETRIEVE:
+    source_location: "Where should I get the {object} from?"
+    object: "What object should I bring?"
+    destination: "Where should I bring the {object}?"
+  NAVIGATE:
+    destination: "Where would you like me to go?"
+  DELIVER:
+    person: "Who or where should I deliver the {object} to?"
+    destination: "Who or where should I deliver the {object} to?"
+    object: "What should I deliver?"
+  FOLLOW:
+    person: "Who should I follow?"
+  RETURN:
+    destination: "Where should I return to?"
+  STOP: {}
+  default:
+    destination: "Where would you like me to go?"
+    source_location: "Where should that be from?"
+    object: "Which object do you mean?"
+    person: "Who do you mean?"
+    action: "What should I do?"
+
+ambiguous_fallback: "Could you clarify what you mean?"
