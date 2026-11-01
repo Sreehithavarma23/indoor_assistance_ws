@@ -1,0 +1,28 @@
+# ROS 2 build, install, and log outputs
+build/
+install/
+log/
+
+# Python virtual environments & bytecode
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Model weights, runs, and temporary diagnostic outputs
+*.pt
+*.onnx
+*.engine
+runs/
+frames_*.gv
+frames_*.pdf
+
+# Audio test recordings
+*.wav
+*.mp3
+
+# IDE & system metadata
+.vscode/
+.idea/
+.DS_Store

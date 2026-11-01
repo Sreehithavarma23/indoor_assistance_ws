@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Arm Base Link (Torso) -->
+    <link name="torso">
+        <inertial>
+            <mass value="0.05"/>
+            <origin rpy="0 0 0" xyz="0 0 0.1"/>
+            <inertia ixx="0.0001" iyy="0.0001" izz="0.00005" ixy="0" ixz="0" iyz="0"/>
+        </inertial>    
+        <visual>        
+            <geometry>
+                <cylinder length="0.2" radius="0.025"/>
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1"/>
+            </material>
+            <origin rpy="0 0 0" xyz="0.0 0.0 0.1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.2" radius="0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.0 0.0 0.1"/>
+        </collision>
+    </link>
+
+    <!-- Joint: Hip (FIXED) -->
+    <joint name="hip" type="fixed">
+        <axis xyz="0 0 1"/>
+        <parent link="chassis"/>
+        <child link="torso"/>
+        <origin rpy="0 0 0" xyz="0.25 0 0.30"/>
+    </joint>
+
+    <!-- Upper Arm -->
+    <link name="upper_arm">
+        <inertial>
+            <mass value="0.03"/>
+            <origin rpy="0 0 0" xyz="0 0 0.1"/>
+            <inertia ixx="0.00008" iyy="0.00008" izz="0.00002" ixy="0" ixz="0" iyz="0"/>
+        </inertial>    
+        <visual>
+            <geometry>
+                <cylinder length="0.2" radius="0.02"/>
+            </geometry>
+            <material name="silver"/>
+            <origin rpy="0 0 0" xyz="0 0 0.1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.2" radius="0.02"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0.1"/>
+        </collision>
+    </link>
+
+    <!-- Joint: Shoulder Pitch (FIXED) -->
+    <joint name="shoulder" type="fixed">
+        <axis xyz="0 1 0"/>
+        <parent link="torso"/>
+        <child link="upper_arm"/>
+        <origin rpy="0 0 0" xyz="0.0 0.0 0.20"/>
+    </joint>
+
+    <!-- Lower Arm -->
+    <link name="lower_arm">
+        <inertial>
+            <mass value="0.02"/>
+            <origin rpy="0 0 0" xyz="0 0 0.1"/>
+            <inertia ixx="0.00004" iyy="0.00004" izz="0.00001" ixy="0" ixz="0" iyz="0"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <cylinder length="0.2" radius="0.018"/>
+            </geometry>
+            <material name="silver"/>
+            <origin rpy="0 0 0" xyz="0 0 0.1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.2" radius="0.018"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0.1"/>
+        </collision>
+    </link>
+
+    <!-- Joint: Elbow Pitch (FIXED) -->
+    <joint name="elbow" type="fixed">
+        <axis xyz="0 1 0"/>
+        <parent link="upper_arm"/>
+        <child link="lower_arm"/>
+        <origin rpy="0 0 0" xyz="0.0 0.0 0.20"/>
+    </joint>
+
+    <!-- Hand -->
+    <link name="hand">
+        <inertial>
+            <mass value="0.01"/>
+            <inertia ixx="0.00001" iyy="0.00001" izz="0.00001" ixy="0" ixz="0" iyz="0"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.025 0.025 0.025"/>
+            </geometry>
+            <material name="silver"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.025 0.025 0.025"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Joint: Wrist Roll (FIXED) -->
+    <joint name="wrist" type="fixed">
+        <axis xyz="0 1 0"/>
+        <parent link="lower_arm"/>
+        <child link="hand"/>
+        <origin rpy="0 0 0" xyz="0.0 0.0 0.20"/>
+    </joint>
+
+    <!-- Grippers -->
+    <link name="left_gripper_base">
+        <inertial>
+            <mass value="0.001"/>
+            <inertia ixx="1e-8" iyy="1e-8" izz="1e-8" ixy="0" ixz="0" iyz="0"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.004 0.004 0.015"/>
+            </geometry>
+            <material name="silver"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.004 0.004 0.015"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Joint: Left Gripper Base (FIXED) -->
+    <joint name="l_g_base" type="fixed">
+        <axis xyz="1 0 0"/>
+        <origin rpy="-0.9162 0 0" xyz="0 0.012 0.015"/>
+        <parent link="hand"/>
+        <child link="left_gripper_base"/>
+    </joint>
+
+    <link name="right_gripper_base">
+        <inertial>
+            <mass value="0.001"/>
+            <inertia ixx="1e-8" iyy="1e-8" izz="1e-8" ixy="0" ixz="0" iyz="0"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.004 0.004 0.015"/>
+            </geometry>
+            <material name="silver"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.004 0.004 0.015"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Joint: Right Gripper Base (FIXED) -->
+    <joint name="r_g_base" type="fixed">
+        <axis xyz="1 0 0"/>
+        <origin rpy="0.9162 0 0" xyz="0 -0.012 0.015"/>
+        <parent link="hand"/>
+        <child link="right_gripper_base"/>
+    </joint>
+
+    <link name="left_gripper_finger">
+        <inertial>
+            <mass value="0.0005"/>
+            <inertia ixx="1e-8" iyy="1e-8" izz="1e-8" ixy="0" ixz="0" iyz="0"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.004 0.004 0.025"/>
+            </geometry>
+            <material name="silver"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.004 0.004 0.025"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="l_g_finger" type="fixed">
+        <origin rpy="0.3926 0 0" xyz="0 -0.004 0.01"/>
+        <parent link="left_gripper_base"/>
+        <child link="left_gripper_finger"/>
+    </joint>
+
+    <link name="right_gripper_finger">
+        <inertial>
+            <mass value="0.0005"/>
+            <inertia ixx="1e-8" iyy="1e-8" izz="1e-8" ixy="0" ixz="0" iyz="0"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.004 0.004 0.025"/>
+            </geometry>
+            <material name="silver"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.004 0.004 0.025"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="r_g_finger" type="fixed">
+        <origin rpy="-0.3926 0 0" xyz="0 0.004 0.01"/>
+        <parent link="right_gripper_base"/>
+        <child link="right_gripper_finger"/>
+    </joint>
+
+</robot>

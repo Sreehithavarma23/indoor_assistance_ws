@@ -1,0 +1,17 @@
+locations:
+  docking_base:
+    x: 0.0
+    y: 0.0
+    yaw: 0.0
+  hall:
+    x: 5.80
+    y: 3.33
+    yaw: 0.0
+  kitchen:
+    x: -2.56
+    y: 1.10
+    yaw: 1.57
+  bedroom:
+    x: -6.19
+    y: 3.33
+    yaw: 3.14

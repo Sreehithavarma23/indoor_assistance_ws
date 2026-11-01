@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="indoor_assistance_robot">
+
+  <!-- Include Core & Sensor Xacros -->
+  <xacro:include filename="robot_core.xacro"/>
+  <xacro:include filename="lidar.xacro"/>
+  <xacro:include filename="imu.xacro"/>
+
+  <!-- Include 4-DOF Arm -->
+  <xacro:include filename="iris_arm.xacro"/>
+
+</robot>
